@@ -1,6 +1,7 @@
 package com.paul.jcenter;
 
 import com.paul.leetcode.AddTwoNumbers;
+import com.paul.leetcode.LengthOfLongestSubstring;
 import com.paul.leetcode.TwoSum;
 
 import org.junit.Test;
@@ -59,5 +60,12 @@ public class ExampleUnitTest {
             listNode = listNode.next;
         }
         return list;
+    }
+
+    @Test
+    public void lengthOfLongesSubstring(){
+        assertEquals(3, LengthOfLongestSubstring.solution2("abcabcbb"));
+        assertEquals(1, LengthOfLongestSubstring.solution2("bbbbb"));
+        assertEquals(3, LengthOfLongestSubstring.solution2("pwwkew"));
     }
 }
