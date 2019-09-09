@@ -38,14 +38,15 @@ public class AddTwoNumbers {
         ListNode result = null;
         ListNode currentNode = null;
         while (l1 != null && l2 != null) {
+            add = l1.val + l2.val + add;
             if (currentNode == null) {
-                currentNode = new ListNode((l1.val + l2.val + add) % 10);
+                currentNode = new ListNode(add % 10);
                 result = currentNode;
             }else {
-                currentNode.next = new ListNode((l1.val + l2.val + add) % 10);
+                currentNode.next = new ListNode(add % 10);
                 currentNode = currentNode.next;
             }
-            add = (l1.val + l2.val + add) / 10;
+            add = add / 10;
             l1 = l1.next;
             l2 = l2.next;
         }
@@ -60,6 +61,44 @@ public class AddTwoNumbers {
             add = (l2.val + add) / 10;
             l2 = l2.next;
             currentNode = currentNode.next;
+        }
+        if (add != 0){
+            currentNode.next = new ListNode(add);
+        }
+        return result;
+    }
+
+    /**
+     * 执行结果：通过
+     * 显示详情
+     *      执行用时 : 6 ms, 在所有 Java 提交中击败了 76.20% 的用户
+     *      内存消耗 : 44 MB, 在所有 Java 提交中击败了 87.51% 的用户
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public static ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        int add = 0;
+        ListNode result = null;
+        ListNode currentNode = null;
+        while (l1 != null || l2 != null) {
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
+            add = x + y + add;
+            if (currentNode == null) {
+                currentNode = new ListNode(add % 10);
+                result = currentNode;
+            }else {
+                currentNode.next = new ListNode(add % 10);
+                currentNode = currentNode.next;
+            }
+            add = add / 10;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
         }
         if (add != 0){
             currentNode.next = new ListNode(add);

@@ -52,7 +52,7 @@ public class ExampleUnitTest {
         assertArrayEquals(listNodeToList(l3).toArray(),listNodeToList(AddTwoNumbers.addTwoNumbers1(l1,l2)).toArray());
     }
 
-    public List listNodeToList(AddTwoNumbers.ListNode listNode){
+    private List listNodeToList(AddTwoNumbers.ListNode listNode){
         List<Integer> list = new ArrayList<>();
         while (listNode != null){
             list.add(listNode.val);
