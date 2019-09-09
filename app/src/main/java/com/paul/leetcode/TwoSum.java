@@ -1,5 +1,7 @@
 package com.paul.leetcode;
 
+import java.util.HashMap;
+
 /**
  * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
  *
@@ -18,6 +20,15 @@ package com.paul.leetcode;
  */
 public class TwoSum {
 
+    /**
+     * 执行结果：通过
+     * 显示详情
+     *      执行用时 : 37 ms, 在所有 Java 提交中击败了 54.02% 的用户
+     *      内存消耗 : 37.3 MB, 在所有 Java 提交中击败了 89.82% 的用户
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int[] solution1(int[] nums, int target){
         int length = nums.length;
         for (int i = 0; i < length - 1; i++) {
@@ -31,16 +42,24 @@ public class TwoSum {
         return new int[]{0,0};
     }
 
-
+    /**
+     * 执行结果：通过
+     * 显示详情
+     *  执行用时 : 5 ms , 在所有 Java 提交中击败了 96.24% 的用户
+     *  内存消耗 : 38 MB, 在所有 Java 提交中击败了 77.05% 的用户
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int[] solution2(int[] nums, int target){
         int length = nums.length;
-        for (int i = 0; i < length - 1; i++) {
+        HashMap<Integer, Integer> hashMap = new HashMap<Integer,Integer>(length-1);
+        for (int i = 0; i < length; i++) {
             int A = target - nums[i];
-            for (int j = i+1; j < length; j++) {
-                if (A == nums[j]){
-                    return new int[]{i,j};
-                }
+            if (hashMap.containsKey(A)){
+                return new int[]{hashMap.get(A),i};
             }
+            hashMap.put(nums[i],i);
         }
         return new int[]{0,0};
     }
