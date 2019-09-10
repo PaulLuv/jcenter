@@ -64,8 +64,9 @@ public class LengthOfLongestSubstring {
      */
     public static int solution2(String s){
         String subString = "";
+        int size = s.length();
         int result = 0;
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < size; i++) {
             char a = s.charAt(i);
             int index = subString.indexOf(a);
             if (index != -1){
@@ -87,5 +88,26 @@ public class LengthOfLongestSubstring {
         return result;
     }
 
+    /**
+     * 参考最优解优化 solution1
+     * 滑动窗口，只需要更新 left 位置， right 就是当前 i
+     */
+    public static int solution3(String s){
+        int length = s.length();
+        if (length == 0){
+            return 0;
+        }
+        HashMap<Character,Integer> hashMap = new HashMap<>(length);
+        int result = 0;
+        int left = 0;
+        for (int i = 0; i < length; i++) {
+            if (hashMap.containsKey(s.charAt(i))){
+                left = Math.max(left,hashMap.get(s.charAt(i)) + 1);
+            }
+            hashMap.put(s.charAt(i),i);
+            result = Math.max(result,i - left + 1);
+        }
+        return result;
+    }
 
 }
