@@ -1,6 +1,7 @@
 package com.paul.jcenter;
 
 import com.paul.leetcode.AddTwoNumbers;
+import com.paul.leetcode.FindMedianSortedArrays;
 import com.paul.leetcode.LengthOfLongestSubstring;
 import com.paul.leetcode.TwoSum;
 
@@ -67,5 +68,24 @@ public class ExampleUnitTest {
         assertEquals(3, LengthOfLongestSubstring.solution2("abcabcbb"));
         assertEquals(1, LengthOfLongestSubstring.solution2("bbbbb"));
         assertEquals(3, LengthOfLongestSubstring.solution2("pwwkew"));
+    }
+
+    @Test
+    public void findMedianSortedArrays(){
+        int[] num1 = new int[]{1,3,4,5,6,7,8,9,11,22};
+        int[] num2 = new int[]{3,4,5,6,7,8};
+        assertEquals(6.0, FindMedianSortedArrays.solution(num1,num2),0.1);
+
+        int[] num3 = new int[]{4};
+        int[] num4 = new int[]{1,2,3};
+        assertEquals(2.5, FindMedianSortedArrays.solution(num3,num4),0.1);
+
+        int[] num5 = new int[]{1,2};
+        int[] num6 = new int[]{3,4};
+        assertEquals(2.5, FindMedianSortedArrays.solution(num5,num6),0.1);
+
+        int[] num7 = new int[]{};
+        int[] num8 = new int[]{3,4};
+        assertEquals(3.5, FindMedianSortedArrays.solution(num7,num8),0.1);
     }
 }

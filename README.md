@@ -11,3 +11,4 @@ A: "Add To JCenter" is not enabled for Enterprise Trial users. You need to be OS
 - [x] [1 TwoSum](./app/src/main/java/com/paul/leetcode/TwoSum.java)   
 - [x] [2 AddTwoNumbers](./app/src/main/java/com/paul/leetcode/AddTwoNumbers.java)    
 - [x] [3 LengthOfLongestSubstring](./app/src/main/java/com/paul/leetcode/LengthOfLongestSubstring.java)   
+- [] [4 FindMedianSortedArrays](./app/src/main/java/com/paul/leetcode/FindMedianSortedArrays.java)   
